@@ -1,0 +1,166 @@
+@import 'reset';
+@import 'colors';
+@import 'utils';
+@import 'responsive';
+@import 'animate';
+
+$SourceSansProPath: 'font-source-sans-pro-compass';
+@import 'font-source-sans-pro-compass/source-sans-pro-compass';
+
+html, body {
+  font-family: 'Source Sans Pro';
+  font-weight: 100;
+  
+  @include width-less-than($device-pad) {
+    font-size: 12px;
+  }
+  @include width-less-than($device-phone-plus) {
+    font-size: 16px;
+  }
+  @include width-less-than($device-phone) {
+    font-size: 8px;
+  }
+}
+
+body {
+  background: $color-dark;
+}
+
+#header {
+  position: fixed;
+  width: 50px;
+  height: 100%;
+  min-height: 400px;
+  background: $color-darker;
+  overflow: scroll;
+}
+
+#content {
+  margin-left: 50px;
+}
+
+.navbar {
+  $nav-trans-duration: .4s;
+  $nav-icon-spacing: 1;
+  $nav-icon-size: image-height('icons/icon-behance.png');
+  height: 100%;
+  text-align: center;
+  @include display-flex();
+  @include flex-direction(column-reverse);
+  @include user-select(none);
+  .main-logo {
+    @include display-flex();
+    @include flex-direction(column-reverse);
+    @include flex-grow(1);
+    &:before {
+      margin: 1rem auto;
+      @include pseudo-element;
+      @include use-sprite('main-logo');
+    }
+  }
+  .nav {
+    position: relative;
+    top: - (2 * rem-to-pixel($nav-icon-spacing) + $nav-icon-size) * 3;
+    @include transition(all $nav-trans-duration ease-in-out);
+    &.show {
+      top: 0;
+    }
+  }
+  @each $icon in behance, connect, about {
+    .nav-#{$icon} > a {
+      @include use-sprite('icon-#{$icon}');
+      display: inline-block;
+    }
+  }
+  .nav-toggle {
+    position: relative;
+    z-index: 100;
+    background: $color-darker;
+    > a {
+      @include use-sprite('icon-menu');
+      @include transition-delay($nav-trans-duration / 2);
+      @include animation(rotate-reverse $nav-trans-duration);
+      display: inline-block;
+    }
+    &.open > a {
+      @include use-sprite('icon-close');
+      @include animation(rotate $nav-trans-duration);
+      display: inline-block;
+    }
+  }
+  .nav li, .nav-toggle {
+    height: $nav-icon-size;
+    padding: $nav-icon-spacing + rem 0;
+  }
+  a {
+    @include hide-text;
+  }
+}
+
+.works {
+  $work-trans-duration: .2s;
+  @include display-flex();
+  @include flex-wrap(wrap);
+  li {
+    width: 50%;
+    position: relative;
+    line-height: 0;
+    @include width-less-than($device-phone-plus) {
+      width: 100%;
+    }
+  }
+  img {
+    width: 100%;
+  }
+  .work-detail {
+    @include display-flex();
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include opacity(0);
+    @include transition(all $work-trans-duration ease-in-out);
+    line-height: 2;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: $color-almost-white;
+    background: $color-darker;
+    &:hover {
+      @include opacity(.85);
+    }
+    a {
+      color: $color-almost-white;
+    }
+  }
+  .work-title {
+    line-height: 5rem;
+    font-size: 3rem;
+    white-space: nowrap;
+    @include width-less-than($device-desktop) {
+      font-size: 2.4rem;
+    }
+    @include width-less-than($device-phone-plus) {
+      font-size: 2rem;
+    }
+    span {
+      display: inline-block;
+      border-bottom: 1px solid $color-almost-white;
+    }
+  }
+  .work-related_links {
+    font-size: 1.8rem;
+    @include width-less-than($device-phone-plus) {
+      font-size: 1.6rem;
+    }
+  }
+  .work-related_link {
+    &:after {
+      content: '|';
+      padding: 0 .5rem;
+    }
+    &:last-child:after {
+      display: none;
+    }
+  }
+}

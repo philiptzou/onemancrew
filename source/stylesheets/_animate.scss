@@ -1,0 +1,21 @@
+@import 'compass/css3';
+
+@include keyframes(rotate) {
+  0% {
+    transform-origin: center;
+  }
+  100% {
+    transform-origin: center;
+    transform: rotate3d(0, 0, 1, 180deg);
+  }
+}
+
+@include keyframes(rotate-reverse) {
+  0% {
+    transform-origin: center;
+  }
+  100% {
+    transform-origin: center;
+    transform: rotate3d(0, 0, 1, -180deg);
+  }
+}

@@ -1,0 +1,30 @@
+@mixin width-less-than($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin height-less-than($height) {
+    @media screen and (max-height: $height) {
+        @content;
+    }
+}
+
+@mixin width-larger-than($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin height-larger-than($height) {
+    @media screen and (min-height: $height) {
+        @content;
+    }
+}
+
+@mixin aspect-ratio-less-than($width, $height) {
+    @media
+    only screen and (max-aspect-ratio: #{$width}/#{$height}) {
+        @content;
+    }
+}
