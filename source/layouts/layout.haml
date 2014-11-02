@@ -8,5 +8,17 @@
     %title= current_page.data.title + " - One Man Crew"
     = stylesheet_link_tag "application"
   %body
+    %header#header
+      .navbar
+        .main-logo
+        %ul.nav
+          %li.nav-about
+            = link_to 'About', '#'
+          %li.nav-connect
+            = link_to 'Connect', '#'
+          %li.nav-behance
+            = link_to 'Behance', '#'
+        .nav-toggle
+          = link_to 'Toggle Navbar', '#'
     = yield
     = javascript_include_tag "application"

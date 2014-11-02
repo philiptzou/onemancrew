@@ -1,18 +1,6 @@
 ---
 title: Main Page
 ---
-%header#header
-  .navbar
-    .main-logo
-    %ul.nav
-      %li.nav-about
-        = link_to 'About', '#'
-      %li.nav-connect
-        = link_to 'Connect', '#'
-      %li.nav-behance
-        = link_to 'Behance', '#'
-    .nav-toggle
-      = link_to 'Toggle Navbar', '#'
 #content
   %ul.works
     - data.works.each do |work|
