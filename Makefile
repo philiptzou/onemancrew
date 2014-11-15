@@ -1,3 +1,7 @@
+init:
+	bundle
+	bower install
+
 build:
 	middleman build
 
@@ -7,4 +11,4 @@ serve:
 release: build
 	rsync -auvz --delete --exclude=*.swp --exclude=*.orig build/* philip.so:onemancrew
 
-.PHONY: release build serve
+.PHONY: init release build serve
