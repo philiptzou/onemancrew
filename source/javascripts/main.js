@@ -25,6 +25,7 @@
     }
 
     function onReady() {
+      FastClick.attach('#header');
     }
 
     $(onReady);
