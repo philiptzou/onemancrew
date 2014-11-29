@@ -12,6 +12,12 @@
             }
             e.preventDefault();
         });
+        $('#header').fixedsticky();
+        $(window).on('load resize', function() {
+          var navHeight = $('body').css('height', '100%').height();
+          $('#header').height(navHeight);
+          $('body').css('height', 'auto');
+        });
     }
 
     function beforeLoad() {

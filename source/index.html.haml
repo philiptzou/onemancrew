@@ -8,7 +8,7 @@ title: Main Page
         = image_tag work.src, :alt => work.title
         .work-detail
           .work-title
-            %span= work.title
+            %span(title="#{work.title}") #{work.title}
           .work-related_links
             - work.related_links.each do |link|
               %span.work-related_link
