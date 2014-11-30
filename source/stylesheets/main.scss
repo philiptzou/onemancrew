@@ -186,7 +186,7 @@ $works-spacing: 10px;
     @include background-clip(content-box);
     @include width-larger-than($device-phone-plus + 1) {
       padding-bottom: $works-spacing;
-      padding-right: $works-spacing/2;
+      padding-right: ($works-spacing - 1px)/2;
     }
     &:hover {
       @include opacity(.85);
