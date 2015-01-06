@@ -1,0 +1,29 @@
+---
+title: '<%= @title %>'
+thumb: '<%= "works/#{@title.downcase.gsub(' ', '_')}/thumb.jpg" %>'
+date: <%= @date.strftime('%F %R %Z') %>
+ordinal: 200
+tags:
+---
+%h1
+  <%= @title %>
+%p.video-container
+  %iframe{:allowscriptaccess => "always",
+          :allowFullScreen => "true",
+          :frameborder => "0",
+          :src => "http://www.youtube.com/embed/#{@video_id}",
+          :title => "YouTube video player"}
+%p.video-container
+  %iframe{:allowscriptaccess => "always",
+          :allowFullScreen => "true",
+          :frameborder => "0",
+          :src => "http://player.youku.com/embed/#{@video_id}",
+          :title => "Youku video player"}
+%p.image-container
+  = image_tag 'works/<%= @title.downcase.gsub(' ', '_') %>/01.jpg'
+%p.image-container
+  = image_tag 'works/<%= @title.downcase.gsub(' ', '_') %>/02.jpg'
+%p.image-container
+  = image_tag 'works/<%= @title.downcase.gsub(' ', '_') %>/03.jpg'
+%p.image-container
+  = image_tag 'works/<%= @title.downcase.gsub(' ', '_') %>/04.jpg'

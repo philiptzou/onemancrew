@@ -5,10 +5,10 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
     %meta{:content => "IE=edge,chrome=1",
           :"http-equiv" => "X-UA-Compatible"}
-    %title= current_page.data.title + " - One Man Crew"
+    %title= (current_page.data.title.is_a?(String) ? "#{current_page.data.title} - " : '') + "One Man Crew"
     = stylesheet_link_tag "application"
   %body
-    .hero
+    %a.hero(href="/")
     %header#header.fixedsticky
       .navbar
         .main-logo
@@ -16,9 +16,9 @@
           %li.nav-about
             = link_to 'About', '#'
           %li.nav-connect
-            = link_to 'Connect', '#'
+            = link_to 'Connect', 'mailto:onemancrew42@gmail.com'
           %li.nav-behance
-            = link_to 'Behance', '#'
+            = link_to 'Behance', 'https://www.behance.net/GreenyL', target: '_blank'
         .nav-toggle
           = link_to 'Toggle Navbar', '#'
     = yield

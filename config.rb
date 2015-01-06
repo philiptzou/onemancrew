@@ -78,8 +78,22 @@ require 'pathname'
 
 bower_dir = 'vendor/assets/bower/'
 %w(font-source-sans-pro-compass/*/*).each do |pattern|
-    Dir[bower_dir + pattern].each do |font|
-        sprockets.import_asset Pathname.new(font).relative_path_from(
-            Pathname.new(bower_dir))
-    end
+  Dir[bower_dir + pattern].each do |font|
+    sprockets.import_asset Pathname.new(font).relative_path_from(
+      Pathname.new(bower_dir))
+  end
+end
+
+activate :blog do |blog|
+  # set options on blog
+  blog.default_extension = '.haml'
+  blog.day_link = '/{year}/{month}/{day}/'
+  blog.month_link = '/{year}/{month}/'
+  blog.year_link = '/{year}/'
+  blog.taglink = '/tags/{tag}/'
+  blog.permalink = '/{title}/'
+  blog.sources = '/{title}.html'
+  blog.layout = 'works-show'
+  blog.prefix = '/works'
+  blog.new_article_template = 'source/layouts/work.tt'
 end

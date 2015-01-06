@@ -1,15 +1,14 @@
 ---
-title: Main Page
+title: onemancrew
 ---
 #content
   %ul.works
-    - data.works.each do |work|
+    - blog.articles.sort { |l,r| l.data.ordinal.to_i - r.data.ordinal.to_i }.each do |work|
       %li.work
-        = image_tag work.src, :alt => work.title
+        = image_tag work.data.thumb, :alt => work.title
         .work-detail
-          .work-title
-            %span(title="#{work.title}") #{work.title}
-          .work-related_links
-            - work.related_links.each do |link|
-              %span.work-related_link
-                = link_to link.title, link.href
+          .work-title(class="#{'work-title-small' if work.title.length > 18} #{'work-title-tiny' if work.title.length > 28}")
+            =link_to work.title, work.url, title: work.title
+          .work-tags
+            - work.tags.each do |tag|
+              %span.work-tag>= tag
