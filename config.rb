@@ -87,11 +87,11 @@ end
 activate :blog do |blog|
   # set options on blog
   blog.default_extension = '.haml'
-  blog.day_link = '/{year}/{month}/{day}/'
-  blog.month_link = '/{year}/{month}/'
-  blog.year_link = '/{year}/'
-  blog.taglink = '/tags/{tag}/'
-  blog.permalink = '/{title}/'
+  blog.day_link = '/{year}/{month}/{day}/index.html'
+  blog.month_link = '/{year}/{month}/index.html'
+  blog.year_link = '/{year}/index.html'
+  blog.taglink = '/tags/{tag}/index.html'
+  blog.permalink = '/{title}/index.html'
   blog.sources = '/{title}.html'
   blog.layout = 'works-show'
   blog.prefix = '/works'
