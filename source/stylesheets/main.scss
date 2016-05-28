@@ -11,7 +11,7 @@ $SourceSansProPath: 'font-source-sans-pro-compass';
 html, body {
   font-family: 'Source Sans Pro';
   font-weight: 100;
-  
+
   @include width-less-than($device-pad) {
     font-size: 12px;
   }
@@ -24,12 +24,13 @@ html, body {
 }
 
 body {
-  background: $color-almost-black;
+  background: #ffffff;
   max-width: 1024px;
   margin: 0 auto;
   background-image: image-url('materials/background.jpg');
   background-position: top left;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 .hero {
@@ -64,7 +65,7 @@ body {
   width: 50px;
   height: 100%;
   min-height: 400px;
-  background: $color-darker;
+  background: $color-brighter;
 }
 
 #content {
@@ -108,7 +109,7 @@ body {
   .nav-toggle {
     position: relative;
     z-index: 100;
-    background: $color-darker;
+    background: $color-bright;
     > a {
       @include use-sprite('icon-menu');
       @include transition-delay($nav-trans-duration / 2);
@@ -247,17 +248,17 @@ $works-spacing: 10px;
 
 article#content {
   @include box-sizing(border-box);
-  color: $color-almost-white;
+  color: $color-darker;
   padding-left: 2rem;
   a {
-    color: $color-almost-white;
+    color: $color-darker;
   }
   h1 {
     text-align: center;
     font-size: 2.4rem;
     line-height: 1.2em;
     padding-bottom: 1.5rem;
-    border-bottom: 1px $color-almost-white solid;
+    border-bottom: 1px $color-dark solid;
     margin-bottom: 3rem;
   }
   h2 {
@@ -282,6 +283,13 @@ article#content {
       left: 0;
       width: 100%;
       height: 100%;
+    }
+  }
+  .iframe-container {
+    position: relative;
+    width: 100%;
+    iframe {
+      width: 100%;
     }
   }
   .image-container {
